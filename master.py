@@ -1,8 +1,8 @@
-import datetime as dt
-import pandas
-from twitterscraper import query_tweets
-import twitterscraper as ts
-import requests
+# import datetime as dt
+# import pandas
+# from twitterscraper import query_tweets
+# import twitterscraper as ts
+# import requests
 
 # begin_date = dt.date(2020,5,1)
 # end_date = dt.date(2020,6,28)
@@ -16,3 +16,17 @@ import requests
 # df = pd.DataFrame(t.__dict__ for t in tweets)
 # pd.set_option("display.max_rows", None, "display.max_columns", None)
 # print(df.head())
+
+import pandas as pd
+import numpy as np
+import twitterscraper as ts
+from wordcloud import WordCloud
+from textblob import TextBlob
+import re
+import matplotlib.pyplot as plt
+plt.style.use('fivethirtyeight')
+
+## Getting Elon Tweets
+tweets = ts.query.query_tweets_from_user("elonmusk")
+df = pd.DataFrame(t.__dict__ for t in tweets)
+df.to_csv('Elon.csv')
